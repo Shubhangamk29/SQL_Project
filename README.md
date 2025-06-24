@@ -104,4 +104,22 @@ This project involved an analysis of call center data to gain insights into call
   Calculated response time counts by call center
   Ordered to identify best and worst performing centers
 
+## About SQL
+
+SQL (Structured Query Language) is a programming language for interacting with relational databases. Key SQL capabilities:
+
+- CRUD operations - create, read, update, delete data
+- Joins - combine data from multiple tables
+- Aggregate functions - summations, counts, averages on data
+- Subqueries - nested queries for advanced operations
+- Stored procedures - reusable routines for logic
+- Window functions - analytics functions for rankings etc.
+
+For these examples, I used Microsoft SQL Server Management Studio.
+
+## Usage
+
+- Install a SQL database such as SQL Server Express
+- Import any .sql files to run the queries
+- Modify the queries for your own database
 
