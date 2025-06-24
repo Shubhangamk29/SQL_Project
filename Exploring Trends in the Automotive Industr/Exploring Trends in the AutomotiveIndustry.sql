@@ -44,5 +44,13 @@ SELECT Name, year, selling_price,
        AVG(selling_price) OVER (PARTITION BY Name ORDER BY year ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS ema_selling_price
 FROM car_info;
 
+--- 8. Identify the car models that have had a decrease in selling price from the previous year. ---
+SELECT Name, year, selling_price
+FROM (
+    SELECT Name, year, selling_price,
+           LAG(selling_price) OVER (PARTITION BY Name ORDER BY year) AS previous_year_price
+    FROM car_info
+) AS price_changes
+WHERE selling_price < previous_year_price;
 
 
