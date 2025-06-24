@@ -55,3 +55,15 @@ SELECT
 FROM call_center
 WHERE csat_score <> 0;
 
+--- where cast_score is not equal to 0 ---
+
+SELECT call_center, response_time, COUNT(*) as count
+From call_centerdata.call_center GROUP BY 1,2  ORDER BY 1,3 DESC;
+
+SELECT
+  DATE(call_timestamp) AS call_day,
+  MAX(`call duration in minutes`) AS max_call_duration
+FROM call_center
+GROUP BY call_day
+ORDER BY call_day;
+
