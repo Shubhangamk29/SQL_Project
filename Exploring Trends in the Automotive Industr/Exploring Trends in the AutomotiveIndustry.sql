@@ -33,3 +33,8 @@ WHERE selling_price > (SELECT AVG(selling_price) FROM car_info)
 SELECT Name, year, selling_price, 
        SUM(selling_price) OVER (PARTITION BY Name ORDER BY year) AS cumulative_sum
 FROM car_info;
+
+--- 6. Identify the car models that have a selling price within 10% of the average selling price. ---
+SELECT Name, selling_price
+FROM car_info
+WHERE selling_price BETWEEN (SELECT AVG(selling_price) * 0.9 FROM car_info) AND (SELECT AVG(selling_price) * 1.1 FROM car_info);
