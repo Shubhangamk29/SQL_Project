@@ -19,3 +19,7 @@ FROM hrdata
 GROUP BY department, job_role
 ORDER BY department, role_count DESC;
 
+--- 4. Calculate the average job satisfaction for each education level ---
+SELECT education, AVG(job_satisfaction) AS average_satisfaction
+FROM hrdata
+GROUP BY education;
