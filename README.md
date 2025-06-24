@@ -124,5 +124,5 @@ For these examples, I used Microsoft SQL Server Management Studio.
 - Modify the queries for your own database
 
 ## Data Availability
--Used Kaggle 
+- Used Kaggle 
 
