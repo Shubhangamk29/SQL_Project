@@ -48,3 +48,11 @@ FROM hrdata
 GROUP BY education, age_band
 ORDER BY attrition_rate DESC
 LIMIT 1;
+
+--- 9.Find the education level with the highest average job satisfaction among employees who travel frequently ---
+SELECT education, AVG(job_satisfaction) AS average_satisfaction
+FROM hrdata
+WHERE business_travel = 'Travel_Frequently'
+GROUP BY education
+ORDER BY average_satisfaction DESC
+LIMIT 3;
