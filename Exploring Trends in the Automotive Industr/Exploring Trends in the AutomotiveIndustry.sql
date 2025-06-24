@@ -66,3 +66,19 @@ WHERE (transmission, total_mileage) IN (
     FROM TotalMileage
     GROUP BY transmission
 );
+
+
+--- 10. Find the average selling price per year for the top 3 car models with the highest overall selling prices. ---
+WITH RankedSellingPrices AS (
+    SELECT Name, selling_price,
+           RANK() OVER (PARTITION BY Name ORDER BY selling_price DESC) AS price_rank
+    FROM car_info
+)
+SELECT Name, year, AVG(selling_price) AS avg_selling_price_per_year
+FROM car_info
+WHERE Name IN (
+    SELECT Name
+    FROM RankedSellingPrices
+    WHERE price_rank <= 3
+)
+GROUP BY Name, year;
