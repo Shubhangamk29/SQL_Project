@@ -15,3 +15,9 @@ WHERE seats > 5
 GROUP BY Name
 ORDER BY avg_mileage DESC
 LIMIT 3;
+
+--- 3. Identify the car models where the difference between the maximum and minimum selling prices is greater than $10,000. ---
+SELECT Name
+FROM car_info
+GROUP BY Name
+HAVING MAX(selling_price) - MIN(selling_price) > 10000;
