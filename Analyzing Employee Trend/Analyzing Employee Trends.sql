@@ -40,3 +40,11 @@ FROM hrdata
 GROUP BY department
 ORDER BY average_satisfaction DESC, department
 LIMIT 1;
+
+
+--- 8. Find the age band with the highest attrition rate among employees with a specific education level---
+SELECT education, age_band, SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) / COUNT(*) * 100 AS attrition_rate
+FROM hrdata
+GROUP BY education, age_band
+ORDER BY attrition_rate DESC
+LIMIT 1;
