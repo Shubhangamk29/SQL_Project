@@ -53,4 +53,16 @@ FROM (
 ) AS price_changes
 WHERE selling_price < previous_year_price;
 
-
+--- 9. Retrieve the names of cars with the highest total mileage for each transmission type. ---
+WITH TotalMileage AS (
+    SELECT Name, transmission, SUM(km_driven) AS total_mileage
+    FROM car_info
+    GROUP BY Name, transmission
+)
+SELECT Name, transmission, total_mileage
+FROM TotalMileage
+WHERE (transmission, total_mileage) IN (
+    SELECT transmission, MAX(total_mileage)
+    FROM TotalMileage
+    GROUP BY transmission
+);
