@@ -56,3 +56,11 @@ WHERE business_travel = 'Travel_Frequently'
 GROUP BY education
 ORDER BY average_satisfaction DESC
 LIMIT 3;
+
+--- 10. Identify the age band with the highest average job satisfaction among married employees ----
+SELECT age_band, AVG(job_satisfaction) AS average_satisfaction
+FROM hrdata
+WHERE marital_status = 'Married'
+GROUP BY age_band
+ORDER BY average_satisfaction DESC
+LIMIT 1;
