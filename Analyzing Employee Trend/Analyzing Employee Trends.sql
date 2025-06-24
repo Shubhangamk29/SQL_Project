@@ -33,3 +33,10 @@ GROUP BY job_satisfaction;
 SELECT age_band, SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) / COUNT(*) * 100 AS attrition_rate
 FROM hrdata
 GROUP BY age_band;
+
+--- 7. Identify the departments with the highest and lowest average job satisfaction ---
+SELECT department, AVG(job_satisfaction) AS average_satisfaction
+FROM hrdata
+GROUP BY department
+ORDER BY average_satisfaction DESC, department
+LIMIT 1;
