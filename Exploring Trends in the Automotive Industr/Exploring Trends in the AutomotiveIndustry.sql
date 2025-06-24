@@ -28,3 +28,8 @@ SELECT Name
 FROM car_info
 WHERE selling_price > (SELECT AVG(selling_price) FROM car_info)
     AND mileage < (SELECT AVG(mileage) FROM car_info);
+
+--- 5. Calculate the cumulative sum of the selling prices over the years for each car model. ---
+SELECT Name, year, selling_price, 
+       SUM(selling_price) OVER (PARTITION BY Name ORDER BY year) AS cumulative_sum
+FROM car_info;
