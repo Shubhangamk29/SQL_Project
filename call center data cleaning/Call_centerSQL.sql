@@ -33,3 +33,10 @@ SELECT city,
 FROM call_center
 GROUP BY city;
   
+--- Call count of=n each day---
+SELECT DAYNAME(call_timestamp) AS day_of_week,
+COUNT(*) AS call_count
+FROM call_center
+GROUP BY day_of_week
+ORDER BY call_count DESC;
+
