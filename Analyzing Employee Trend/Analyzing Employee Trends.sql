@@ -28,3 +28,8 @@ GROUP BY education;
 SELECT job_satisfaction, AVG(age) AS average_age
 FROM hrdata
 GROUP BY job_satisfaction;
+
+--- 6. Calculate the attrition rate for each age band --
+SELECT age_band, SUM(CASE WHEN attrition = 'Yes' THEN 1 ELSE 0 END) / COUNT(*) * 100 AS attrition_rate
+FROM hrdata
+GROUP BY age_band;
