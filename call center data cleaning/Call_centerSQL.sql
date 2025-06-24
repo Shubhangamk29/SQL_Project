@@ -14,3 +14,9 @@ SET csat_score = NULL
 WHERE csat_score = '';
 SET SQL_SAFE_UPDATES = 1;
 SELECT * FROM call_center LIMIT 10;
+
+--- Count of num of rows and num of columns in table ---
+SELECT COUNT(*) AS num_rows FROM call_center;
+SELECT COUNT(*) AS num_columns
+FROM information_schema.columns
+WHERE table_name = 'call_center' AND table_schema = 'call_centerdata';
