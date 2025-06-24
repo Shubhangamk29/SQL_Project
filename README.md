@@ -123,3 +123,6 @@ For these examples, I used Microsoft SQL Server Management Studio.
 - Import any .sql files to run the queries
 - Modify the queries for your own database
 
+## Data Availability
+-Used Kaggle 
+
