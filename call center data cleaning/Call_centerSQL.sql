@@ -20,3 +20,8 @@ SELECT COUNT(*) AS num_rows FROM call_center;
 SELECT COUNT(*) AS num_columns
 FROM information_schema.columns
 WHERE table_name = 'call_center' AND table_schema = 'call_centerdata';
+
+--- to select distinct values in each column ----
+SELECT DISTINCT sentiment FROM call_center;
+SELECT DISTINCT city FROM call_center;
+SELECT DISTINCT call_center FROM call_center;
