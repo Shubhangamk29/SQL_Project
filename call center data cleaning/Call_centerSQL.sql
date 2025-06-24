@@ -25,3 +25,11 @@ WHERE table_name = 'call_center' AND table_schema = 'call_centerdata';
 SELECT DISTINCT sentiment FROM call_center;
 SELECT DISTINCT city FROM call_center;
 SELECT DISTINCT call_center FROM call_center;
+
+--- to count and % from total of each distinct values in a column in call_center table ---
+SELECT city,
+  COUNT(*) AS count,
+  COUNT(*) * 100.0 / (SELECT COUNT(*) FROM call_center) AS percentage
+FROM call_center
+GROUP BY city;
+  
