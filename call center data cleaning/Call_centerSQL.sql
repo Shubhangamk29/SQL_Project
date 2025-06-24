@@ -40,3 +40,18 @@ FROM call_center
 GROUP BY day_of_week
 ORDER BY call_count DESC;
 
+
+---- Calculations ---
+SELECT
+  MIN(`call duration in minutes`) AS min_duration,
+  MAX(`call duration in minutes`) AS max_duration,
+  AVG(`call duration in minutes`) AS avg_duration
+FROM call_center;
+
+SELECT
+  MIN(csat_score) AS min_csat,
+  MAX(csat_score) AS max_csat,
+  ROUND(AVG(csat_score), 2) AS avg_csat
+FROM call_center
+WHERE csat_score <> 0;
+
