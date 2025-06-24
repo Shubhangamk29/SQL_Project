@@ -23,3 +23,8 @@ ORDER BY department, role_count DESC;
 SELECT education, AVG(job_satisfaction) AS average_satisfaction
 FROM hrdata
 GROUP BY education;
+
+--- 5.Determine the average age for employees with different levels of job satisfaction ---
+SELECT job_satisfaction, AVG(age) AS average_age
+FROM hrdata
+GROUP BY job_satisfaction;
